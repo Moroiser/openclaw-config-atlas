@@ -2,6 +2,21 @@
 
 面向本机 `~/.openclaw/openclaw.json` 的只读结构图谱，用来把 OpenClaw 配置按括号层级直接摊开看清楚。
 
+[![Release](https://img.shields.io/github/v/release/Moroiser/openclaw-config-atlas?display_name=tag)](https://github.com/Moroiser/openclaw-config-atlas/releases/latest)
+[![License](https://img.shields.io/github/license/Moroiser/openclaw-config-atlas)](./LICENSE)
+
+## 下载
+
+- 最新版本：[`Releases`](https://github.com/Moroiser/openclaw-config-atlas/releases/latest)
+- 当前首发版：[`v0.1.0`](https://github.com/Moroiser/openclaw-config-atlas/releases/tag/v0.1.0)
+- 便携包：在 Release 页面下载 `openclaw-config-atlas-portable-*.tar.gz`
+
+## 预览
+
+公开截图会基于脱敏演示配置补入仓库，避免把真实 token、会话 ID、工作区内容带进公开页面。
+
+在截图补入之前，推荐先从 Release 页面下载便携包，或按下面的方式本地启动体验。
+
 ## 核心能力
 
 - 龙虾画布：按“头胸部 / 体节 / 神经 / 钳 / 肉”展示 defaults、agents、bindings、channel robots 和 sessions
@@ -41,6 +56,12 @@ npm run launch
 - `OPENCLAW_CONFIG_STUDIO_PORT`
 - `OPENCLAW_STATE_DIR`
 - `OPENCLAW_CONFIG_PATH`
+
+## 版本发布
+
+- 仓库主页：<https://github.com/Moroiser/openclaw-config-atlas>
+- 最新 Release：<https://github.com/Moroiser/openclaw-config-atlas/releases/latest>
+- 首个公开版本：<https://github.com/Moroiser/openclaw-config-atlas/releases/tag/v0.1.0>
 
 ## 安全说明
 
