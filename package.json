@@ -1,0 +1,14 @@
+{
+  "name": "openclaw-config-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "ensure-running": "node ./launcher.mjs ensure-running",
+    "launch": "node ./launcher.mjs launch",
+    "install:autostart": "node ./launcher.mjs install-autostart",
+    "status": "node ./launcher.mjs status",
+    "pack:portable": "bash ./package-release.sh"
+  }
+}
