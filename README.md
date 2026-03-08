@@ -17,6 +17,15 @@
 
 在截图补入之前，推荐先从 Release 页面下载便携包，或按下面的方式本地启动体验。
 
+建议使用这些文件名补图：
+
+- `docs/screenshots/lobster-canvas.png`
+- `docs/screenshots/workspace-files.png`
+- `docs/screenshots/backups-json.png`
+- `docs/screenshots/guide.png`
+
+截图规范见 [docs/screenshots/README.md](./docs/screenshots/README.md)。
+
 ## 核心能力
 
 - 龙虾画布：按“头胸部 / 体节 / 神经 / 钳 / 肉”展示 defaults、agents、bindings、channel robots 和 sessions
