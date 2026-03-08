@@ -1191,10 +1191,7 @@ async function loadState() {
     const validTabs = new Set(["lobster", "guide", "backups", "workspaces"]);
     state.info = payload.info;
     state.studioSettings = payload.studioSettings || state.studioSettings;
-    if (!state.loaded && validTabs.has(state.studioSettings?.lastActiveTab)) {
-      state.activeTab = state.studioSettings.lastActiveTab;
-    }
-    if (!validTabs.has(state.activeTab)) state.activeTab = "lobster";
+    state.activeTab = validTabs.has(state.activeTab) ? state.activeTab : "lobster";
     state.rawConfig = structuredClone(payload.config || {});
     state.config = normalizeEditableConfigShape(payload.config);
     state.sourceConfig = structuredClone(state.config);
@@ -1556,7 +1553,7 @@ function buildChannelRobots(channelName) {
     return {
       id: accountId,
       label: channelRobotLabel(channelName, accountId),
-      badge: accountId === resolveChannelDefaultAccountId(channelName) ? "默认机器人" : "机器人",
+      badge: "机器人",
       summary: `${describeChannelCredentialState(channelName, merged)} · dm ${merged.dmPolicy || "pairing"}`
     };
   });

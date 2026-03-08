@@ -26,6 +26,20 @@
 
 截图规范见 [docs/screenshots/README.md](./docs/screenshots/README.md)。
 
+如果你要生成公开截图，推荐直接使用 [demo/README.md](./demo/README.md) 里的演示数据启动一份独立实例。
+
+### 龙虾画布
+
+![Lobster Canvas](./docs/screenshots/lobster-canvas.png)
+
+### 工作区文件
+
+![Workspace Files](./docs/screenshots/workspace-files.png)
+
+### 备份 / JSON
+
+![Backups and Raw JSON](./docs/screenshots/backups-json.png)
+
 ## 核心能力
 
 - 龙虾画布：按“头胸部 / 体节 / 神经 / 钳 / 肉”展示 defaults、agents、bindings、channel robots 和 sessions

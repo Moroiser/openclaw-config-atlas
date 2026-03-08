@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-08T15:00:00.000Z"
+  },
+  "models": {
+    "providers": {
+      "openai-codex": {
+        "baseUrl": "https://api.openai.example/v1",
+        "api": "responses",
+        "models": [
+          {
+            "id": "gpt-5.3-codex",
+            "name": "GPT-5.3 Codex",
+            "reasoning": true,
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "minimax-cn": {
+        "baseUrl": "https://api.minimax.example/anthropic",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.3-codex"
+      },
+      "workspace": "./demo/atlas-demo-state/workspace",
+      "maxConcurrent": 4
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "main",
+        "default": true,
+        "tools": {
+          "deny": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "researcher",
+        "name": "researcher",
+        "workspace": "./demo/atlas-demo-state/agents/researcher/workspace",
+        "model": "minimax-cn/MiniMax-M2.5",
+        "tools": {
+          "allow": [
+            "read",
+            "write",
+            "edit",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "writer",
+        "name": "writer",
+        "workspace": "./demo/atlas-demo-state/agents/writer/workspace",
+        "model": "minimax-cn/MiniMax-M2.5",
+        "tools": {
+          "allow": [
+            "read",
+            "write",
+            "edit"
+          ]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "sessions": {
+      "visibility": "all"
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "researcher",
+      "match": {
+        "channel": "telegram",
+        "accountId": "researcher"
+      }
+    },
+    {
+      "agentId": "writer",
+      "match": {
+        "channel": "telegram",
+        "accountId": "writer"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "main"
+      }
+    }
+  ],
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "defaultAccount": "main",
+      "streaming": "partial",
+      "groups": {
+        "-1000000001001": {
+          "requireMention": true
+        },
+        "-1000000002002": {
+          "requireMention": true
+        }
+      },
+      "accounts": {
+        "default": {
+          "dmPolicy": "pairing",
+          "groupPolicy": "allowlist",
+          "streaming": "partial"
+        },
+        "main": {
+          "dmPolicy": "pairing",
+          "botToken": "telegram_placeholder_main",
+          "allowFrom": [
+            "demo_user_main"
+          ],
+          "groupAllowFrom": [
+            "demo_group_main"
+          ],
+          "groupPolicy": "allowlist",
+          "streaming": "partial"
+        },
+        "researcher": {
+          "dmPolicy": "pairing",
+          "botToken": "telegram_placeholder_researcher",
+          "allowFrom": [
+            "demo_user_researcher"
+          ],
+          "groupAllowFrom": [
+            "demo_group_researcher"
+          ],
+          "groupPolicy": "allowlist",
+          "streaming": "partial"
+        },
+        "writer": {
+          "dmPolicy": "pairing",
+          "botToken": "telegram_placeholder_writer",
+          "allowFrom": [
+            "demo_user_writer"
+          ],
+          "groupAllowFrom": [
+            "demo_group_writer"
+          ],
+          "groupPolicy": "allowlist",
+          "streaming": "partial"
+        }
+      }
+    },
+    "feishu": {
+      "enabled": true,
+      "defaultAccount": "main",
+      "accounts": {
+        "main": {
+          "appId": "feishu_placeholder_app_main",
+          "appSecret": "feishu_placeholder_secret_main",
+          "connectionMode": "websocket",
+          "dmPolicy": "pairing",
+          "groupPolicy": "allowlist",
+          "groups": {
+            "oc_demo_group_main": {
+              "requireMention": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback"
+  }
+}
