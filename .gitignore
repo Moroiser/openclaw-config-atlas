@@ -1,6 +1,7 @@
 .runtime/
 dist/
 node_modules/
+WORKLOG.md
 
 .DS_Store
 Thumbs.db

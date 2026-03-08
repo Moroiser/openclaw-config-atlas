@@ -21,10 +21,6 @@ cp "$ROOT_DIR/README.md" "$STAGE_DIR/"
 cp "$ROOT_DIR/INSTALL-另一台电脑.md" "$STAGE_DIR/"
 cp "$ROOT_DIR/package-release.sh" "$STAGE_DIR/"
 
-if [[ -f "$ROOT_DIR/WORKLOG.md" ]]; then
-  cp "$ROOT_DIR/WORKLOG.md" "$STAGE_DIR/"
-fi
-
 cp -r "$ROOT_DIR/public" "$STAGE_DIR/public"
 
 tar -czf "$ARCHIVE_PATH" -C "$TMP_DIR" openclaw-config-atlas
