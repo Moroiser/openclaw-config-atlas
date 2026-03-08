@@ -20,6 +20,7 @@
 建议使用这些文件名补图：
 
 - `docs/screenshots/lobster-canvas.png`
+- `docs/screenshots/lobster-canvas-2.png`
 - `docs/screenshots/workspace-files.png`
 - `docs/screenshots/backups-json.png`
 - `docs/screenshots/guide.png`
@@ -31,6 +32,8 @@
 ### 龙虾画布
 
 ![Lobster Canvas](./docs/screenshots/lobster-canvas.png)
+
+![Lobster Canvas 2](./docs/screenshots/lobster-canvas-2.png)
 
 ### 工作区文件
 
